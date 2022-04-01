@@ -8,9 +8,10 @@ This tool can be used to scrap all the links present on a webpage.
 - Open WebScrapper/Scrapper folder..
 - Open `main.py` file in an ide or text editor and add the url you want to scrap in line number 5. 
 - Open Windows Terminal or CMD.
-- Run commands:
-	`pip install requests`
-	`pip install bs4'
-	'python main.py`
+- Run commands:<br>
+	`pip install requests`<br>
+	`pip install bs4`<br>
+	`python main.py`
+	
 - Done! You'll soon have all the links on your screen.
 
