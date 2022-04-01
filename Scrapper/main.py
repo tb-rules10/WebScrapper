@@ -2,7 +2,7 @@
 
 import requests
 from bs4 import BeautifulSoup
-url = "https://volhacks.org/"
+url = "https://hackbmu.tech/"
 
 r = requests.get(url)
 htmlContent = r.content
@@ -37,4 +37,16 @@ for link in anchors:
         # print(type(Link))
         all_links.add(Link)
         # print(Link)
-print(all_links)
+
+# Filtering the links found
+Links = set()
+for link in all_links:
+    if link != None:
+         if link.startswith("http"):
+              Links.add(link)
+
+# Printing 
+for i in Links:
+    print(i)
+
+
