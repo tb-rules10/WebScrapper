@@ -1,4 +1,4 @@
-# Mail Mafia
+# Email Extractor
 
 links = []
 all_mails = []
@@ -35,16 +35,7 @@ def extractMails(url):
         
             # print(type(Link))
             if isinstance(Link, str):
-                if Link.startswith("mailto") :
-                # if Link.find("contact") :                     # For finding contact us pages
-                    # if Link.startswith("mailto"):
-                    #     continue
-                    # elif Link.startswith("https://"):         
-                    #     contact = Link
-                    # else:
-                    #     contact = url + Link     
-                    # # n = contact.find("?")
-                  
+                if Link.startswith("mailto") :                 
                     n = Link.find("?")                          # Replace Link with contact keyword when needed ^    
                     if n >= 0:
                         # print(Link[0:n])
@@ -61,7 +52,7 @@ def main():
     txt_to_list()
     for url in links:
         extractMails(url)
-    print("\n.....................................................No Errors 😎.....................................................\n")
+    print("\n.......................... Extraction Complete ..........................\n")
     res = []
     for i in all_mails:
         if i not in res:
