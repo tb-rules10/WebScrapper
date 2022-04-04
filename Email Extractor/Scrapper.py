@@ -5,7 +5,7 @@ all_mails = []
 
 
 def txt_to_list():
-    file = open("links_ki_versha.txt", "r")
+    file = open("all_links.txt", "r")
     for word in file.read().split():
         # print(word)
         if len(word) == 0: 
