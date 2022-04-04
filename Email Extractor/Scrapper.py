@@ -46,21 +46,36 @@ def extractMails(url):
                     # print(Link)
                     # all_mails.add(Link)
                 
-        
+
+def printmails():
+    res = []
+    c = int(input("\nExtraction Complete  ||   Enter 0 to print output, 1 to save file & 2 for both : "))
+    if c==1:
+        with open('mails_out.txt', 'w') as f:    
+            for i in all_mails:
+                if o not in res:
+                    f.write("%s\n" % i)
+    elif c==0:
+        for i in all_mails:
+            if i not in res:
+                print(i)
+                res.append(i)
+    elif c==2:
+        with open('mails_out.txt', 'w') as f:
+            for i in all_mails:
+                if i not in res:
+                    print(i)
+                    f.write("%s\n" % i)
+                    res.append(i)
+    else:
+        print("[!] Invalid Input")
+
 
 def main():
     txt_to_list()
     for url in links:
         extractMails(url)
-    print("\n.......................... Extraction Complete ..........................\n")
-    res = []
-    for i in all_mails:
-        if i not in res:
-            print(i)
-            res.append(i)
-    # print(all_mails)
-
+    printmails()
+    
 
 main()
-
-
