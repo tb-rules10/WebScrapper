@@ -1,4 +1,4 @@
-# Web Scrapper
+# Link Scrapper
 
 This tool can be used to scrap all the links present on a webpage.
 
