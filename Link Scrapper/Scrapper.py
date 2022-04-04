@@ -45,6 +45,19 @@ for link in all_links:
          if link.startswith("http"):
               Links.add(link)
 
-# Printing 
-for i in Links:
-    print(i)
+# Printing
+c = int(input("\nExtraction Complete  ||   Enter 0 to print output, 1 to save file & 2 for both : "))
+if c==1:
+    with open('links_out.txt', 'w') as f:
+        for i in Links:
+            f.write("%s\n" % i)
+elif c==0:
+    for i in Links:
+        print(i)
+elif c==2:
+    with open('links_out.txt', 'w') as f:
+        for i in Links:
+            f.write("%s\n" % i)
+            print(i)
+else:
+    print("[!] Invalid Input")
