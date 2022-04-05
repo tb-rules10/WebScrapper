@@ -53,7 +53,7 @@ def printmails():
     if c==1:
         with open('mails_out.txt', 'w') as f:    
             for i in all_mails:
-                if o not in res:
+                if i not in res:
                     f.write("%s\n" % i)
     elif c==0:
         for i in all_mails:
