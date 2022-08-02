@@ -34,29 +34,23 @@ all_links = set()
 for link in anchors:
     if(link.get('href') != '#'):
         Link = link.get('href')
-        # print(type(Link))
-        all_links.add(Link)
-        # print(Link)
+        if Link != None:
+            if Link.startswith("http"):
+                all_links.add(Link)
 
-# Filtering the links found
-Links = set()
-for link in all_links:
-    if link != None:
-         if link.startswith("http"):
-              Links.add(link)
 
 # Printing
 c = int(input("\nExtraction Complete  ||   Enter 0 to print output, 1 to save file & 2 for both : "))
 if c==1:
     with open('links_out.txt', 'w') as f:
-        for i in Links:
+        for i in all_links:
             f.write("%s\n" % i)
 elif c==0:
-    for i in Links:
+    for i in all_links:
         print(i)
 elif c==2:
     with open('links_out.txt', 'w') as f:
-        for i in Links:
+        for i in all_links:
             f.write("%s\n" % i)
             print(i)
 else:
