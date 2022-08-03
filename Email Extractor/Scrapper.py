@@ -23,6 +23,7 @@ def extractMails(url):
             # print (e)
             return
     
+    print("Scanning - ", url)
     htmlContent = r.content
     soup = BeautifulSoup(htmlContent, 'html.parser')
     # print(soup.prettify)
