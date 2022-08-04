@@ -39,10 +39,10 @@ def extractMails(url):
                 if Link.startswith("mailto") :                 
                     n = Link.find("?")                          # Replace Link with contact keyword when needed ^    
                     if n >= 0:
-                        # print(Link[0:n])
+                        print(url)
                         all_mails.append(Link[0:n])
                     else:
-                        # print(Link)
+                        print(url)
                         all_mails.append(Link)
                     # print(Link)
                     # all_mails.add(Link)
