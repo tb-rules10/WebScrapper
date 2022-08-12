@@ -6,7 +6,7 @@ This tool can be used to scrap all the links present on a webpage.
 
 - Clone this repo to your pc.
 - Open `WebScrapper/Link Scrapper` folder..
-- Open `main.py` file in an ide or text editor and add the url you want to scrap in line number 5. 
+- Open `main.py` file in an ide or text editor and add the `url` you want to scrap in line number 5. 
 - Open Windows Terminal or CMD.
 - Run commands:<br>
 	`pip install requests`<br>
