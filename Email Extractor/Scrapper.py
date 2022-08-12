@@ -2,10 +2,15 @@
 
 links = []
 all_mails = []
+counter = 0
+mcounter = 0
 
 
 def txt_to_list():
-    file = open("all_links.txt", "r")
+    try:
+        file = open("all_links.txt", "r")
+    except OSError as e:
+        file = open("Email Extractor/all_links.txt", "r")
     for word in file.read().split():
         # print(word)
         if len(word) == 0: 
@@ -19,11 +24,13 @@ def extractMails(url):
 
     try:
             r = requests.get(url)
-    except requests.exceptions.RequestException as e:    # This is the correct syntax
-            # print (e)
+    except requests.exceptions.RequestException as e:
             return
-    
-    print("Scanning - ", url)
+
+    global counter
+    global mcounter
+    counter = counter + 1
+    print(counter," - ", url)
     htmlContent = r.content
     soup = BeautifulSoup(htmlContent, 'html.parser')
     # print(soup.prettify)
@@ -39,10 +46,12 @@ def extractMails(url):
                 if Link.startswith("mailto") :                 
                     n = Link.find("?")                          # Replace Link with contact keyword when needed ^    
                     if n >= 0:
-                        print(url)
+                        mcounter = mcounter +1
+                        print("FOUND - ",mcounter)
                         all_mails.append(Link[0:n])
                     else:
-                        print(url)
+                        mcounter = mcounter +1
+                        print("FOUND - ",mcounter)
                         all_mails.append(Link)
                     # print(Link)
                     # all_mails.add(Link)
@@ -74,6 +83,7 @@ def printmails():
 
 def main():
     txt_to_list()
+    print("Scanning:-")
     for url in links:
         extractMails(url)
     printmails()
