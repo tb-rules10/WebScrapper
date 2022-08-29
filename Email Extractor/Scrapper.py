@@ -23,7 +23,7 @@ def extractMails(url):
     from bs4 import BeautifulSoup
 
     try:
-            r = requests.get(url)
+            r = requests.get(url, timeout=10)
     except requests.exceptions.RequestException as e:
             return
 
@@ -39,12 +39,8 @@ def extractMails(url):
     for link in anchors:
         if(link.get('href') != '#'):
             Link = link.get('href')
-            # print(Link)
-        
-            # print(type(Link))
-            if isinstance(Link, str):
-                if Link.startswith("mailto") :                 
-                    n = Link.find("?")                          # Replace Link with contact keyword when needed ^    
+            if isinstance(Link, str) and Link.startswith("mailto") :          
+                    n = Link.find("?")     
                     if n >= 0:
                         mcounter = mcounter +1
                         print("FOUND - ",mcounter)
@@ -53,8 +49,6 @@ def extractMails(url):
                         mcounter = mcounter +1
                         print("FOUND - ",mcounter)
                         all_mails.append(Link)
-                    # print(Link)
-                    # all_mails.add(Link)
                 
 
 def printmails():
